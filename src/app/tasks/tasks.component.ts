@@ -1,16 +1,18 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TaskComponent } from './task/task.component';
+import { NewTaskComponent } from './new-task/new-task.component';
 
 @Component({
   selector: 'app-tasks',
   standalone: true,
-  imports: [TaskComponent],
+  imports: [TaskComponent, NewTaskComponent],
   templateUrl: './tasks.component.html',
   styleUrls: ['./tasks.component.css']
 })
 export class TasksComponent implements OnInit {
   @Input({required:true}) name!: string ;
   @Input({required:true}) id!: string ;
+  isAddingTask = false;
 
  dummyTasks = [
     {
@@ -49,4 +51,11 @@ export class TasksComponent implements OnInit {
   ngOnInit() {
   }
 
+  onStartAddTask(){
+    this.isAddingTask = true;
+  }
+
+  onCancelAddTask(){
+    this.isAddingTask = false;
+  }
 }
