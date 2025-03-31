@@ -6,14 +6,14 @@ import { TasksService } from '../tasks.service';
 
 @Component({
   selector: 'app-task',
-  standalone: true,
-  imports: [CardComponent, DatePipe],
+  standalone: false,
+  // imports: [CardComponent, DatePipe],
   templateUrl: './task.component.html',
   styleUrls: ['./task.component.css'],
 })
 export class TaskComponent implements OnInit {
   private tasksService = inject(TasksService);
-  
+
   @Input({ required: true }) task!: Task;
 
   constructor() {}

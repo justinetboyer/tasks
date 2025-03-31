@@ -6,8 +6,8 @@ import { TasksService } from '../tasks.service';
 
 @Component({
   selector: 'app-new-task',
-  standalone: true,
-  imports: [FormsModule],
+  standalone: false,
+  // imports: [FormsModule],
   templateUrl: './new-task.component.html',
   styleUrls: ['./new-task.component.css'],
 })
@@ -35,7 +35,7 @@ export class NewTaskComponent implements OnInit {
       summary: this.enteredSummary,
       date: this.enteredDueDate,
     }, this.userId);
-    
+
     this.close.emit();
   }
 }
